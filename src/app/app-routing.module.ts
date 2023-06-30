@@ -13,7 +13,7 @@ const routes: Routes = [
   },
   {
     path: 'character-detail/:id',
-    loadComponent: () => import('./pages/character-detail/character-detail.module').then( m => m.CharacterDetailPageModule)
+    loadChildren: () => import('./pages/character-detail/character-detail.module').then( m => m.CharacterDetailPageModule)
   },
   {
     path: 'intro',
