@@ -16,14 +16,20 @@ import { SharedModule } from 'src/app/shared/shared.module';
 export class CharacterDetailPage implements OnInit {
 
   characterId: string = '';
+  character = null as any;
   constructor(
     private actRoute: ActivatedRoute,
     private rickAndMortySvc: RickAndMortyService
   ) {
     this.characterId = this.actRoute.snapshot.paramMap.get('id') as string
+    console.log(this.characterId)
    }
 
   ngOnInit() {
+  }
+
+  ionViewWillEnter(){
+     this.getCharacter()
   }
 
    //== Obtener personajes ===
@@ -32,7 +38,8 @@ export class CharacterDetailPage implements OnInit {
     this.rickAndMortySvc.getCharacterById(this.characterId).subscribe({
 
       next: (res:any) =>{
-
+        console.log(res);
+        this.character = res;
       },
       error: (error:any) =>{
 
