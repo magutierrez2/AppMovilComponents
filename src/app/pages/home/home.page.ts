@@ -47,7 +47,7 @@ export class HomePage implements OnInit {
 
   //== Filtrar personajes por nombre===
   searchCharacters(){
-    this.params.page +=1;
+    this.params.page =1;
 
     this.rickAndMortySvc.getCharacters(this.params).subscribe({
 
